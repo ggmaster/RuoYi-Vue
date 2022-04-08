@@ -42,7 +42,8 @@ public class SsoCodeAuthenticationProvider implements AuthenticationProvider {
 
         String body = getAccessToken(code);
         log.info("返回body：{}.", body);
-        String username = JSONObject.parseObject(body).getJSONObject("user_info").getString("username");
+//        String username = JSONObject.parseObject(body).getJSONObject("user_info").getString("username");
+        String username = JSONObject.parseObject(body).getString("username");
         // 根据code 换username
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
