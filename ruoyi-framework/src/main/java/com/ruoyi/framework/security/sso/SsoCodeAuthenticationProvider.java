@@ -8,6 +8,9 @@ package com.ruoyi.framework.security.sso;
 import com.alibaba.fastjson.JSONObject;
 import com.ruoyi.common.utils.sign.Base64;
 import com.ruoyi.common.utils.spring.SpringUtils;
+import com.ruoyi.framework.web.service.UserDetailsServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -28,6 +31,9 @@ import org.springframework.web.client.RestTemplate;
 public class SsoCodeAuthenticationProvider implements AuthenticationProvider {
     private UserDetailsService userDetailsService;
 
+    private static final Logger log = LoggerFactory.getLogger(SsoCodeAuthenticationProvider.class);
+
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         SsoCodeAuthenticationToken authenticationToken = (SsoCodeAuthenticationToken) authentication;
@@ -35,7 +41,7 @@ public class SsoCodeAuthenticationProvider implements AuthenticationProvider {
         String code = (String) authenticationToken.getPrincipal();
 
         String body = getAccessToken(code);
-
+        log.info("返回body：{}.", body);
         String username = JSONObject.parseObject(body).getJSONObject("user_info").getString("username");
         // 根据code 换username
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
