@@ -61,4 +61,4 @@ sso:
     client-id: ruoyi
     client-secret: ruoyi
     callback-url: http://182.92.229.199/sso  #业务系统的SSO 登录页面
-    auth-server: https://tmars-auth.hujinchain.com     # pig  认证中心地址
+    auth-server: https://tmars-auth.huijinchain.com     # pig  认证中心地址
