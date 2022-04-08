@@ -26,7 +26,7 @@ function start()
 	if [ x"$PID" != x"" ]; then
 	    echo "$AppName is running..."
 	else
-		nohup java $JVM_OPTS -jar $AppName > /dev/null 2>&1 &
+		nohup java $JVM_OPTS -jar $APP_HOME/target/$AppName > /dev/null 2>&1 &
 		echo "Start $AppName success..."
 	fi
 }
@@ -72,6 +72,11 @@ function status()
     fi
 }
 
+function log()
+{
+    tail -fn200 $APP_HOME.out
+}
+
 case $1 in
     start)
     start;;
@@ -81,6 +86,8 @@ case $1 in
     restart;;
     status)
     status;;
+    log)
+    log;;
     *)
 
 esac
