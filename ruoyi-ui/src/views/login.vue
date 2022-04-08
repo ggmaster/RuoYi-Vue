@@ -131,7 +131,7 @@ export default {
       };
     },
     handleSSOLogin(){
-      window.location.href = "http://127.0.0.1:3000/oauth/authorize?client_id=ruoyi&response_type=code&redirect_uri=http://127.0.0.1:1024/sso"
+      window.location.href = "https://tmars-auth.hujinchain.com/oauth/authorize?client_id=test&response_type=code&redirect_uri=http://182.92.229.199/sso"
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
