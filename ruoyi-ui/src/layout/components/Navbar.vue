@@ -104,7 +104,7 @@ export default {
         this.$store.dispatch('LogOut').then(() => {
 
           debugger
-          location.href = 'http://127.0.0.1:3000/logout?redirect_url=http://127.0.0.1:1024/';
+          location.href = 'https://tmars-auth.huijinchain.com/logout?redirect_url=http://182.92.229.199';
         })
       }).catch(() => {});
     }
