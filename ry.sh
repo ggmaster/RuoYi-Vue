@@ -5,7 +5,7 @@ AppName=ruoyi-admin.jar
 # JVM参数
 JVM_OPTS="-Dname=$AppName  -Duser.timezone=Asia/Shanghai -Xms512m -Xmx1024m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDateStamps  -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC"
 APP_HOME=ruoyi-admin
-SPRING_OPTS="-Dspring.profiles.active=dev"
+SPRING_OPTS="-Dspring.profiles.active=druid"
 if [ "$1" = "" ];
 then
     echo -e "\033[0;31m 未输入操作名 \033[0m  \033[0;34m {start|stop|restart|status} \033[0m"
